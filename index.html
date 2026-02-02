@@ -1,181 +1,98 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Interactive Neon Buttons with Enhanced Q&A</title>
-    <style>
-        body {
-            background: #1a1a1a; /* Dark background for contrast */
-            margin: 0;
-            font-family: 'Arial', sans-serif;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            flex-direction: column;
-            overflow: hidden; /* Prevent overflow on small screens */
-        }
+  <meta charset="UTF-8">
+  <title>Just One Question 💕</title>
 
-        /* Container for layout management */
-        .container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: flex-start;
-            width: 100%;
-            padding-top: 30px;
-        }
+  <style>
+    body {
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+      font-family: 'Arial', sans-serif;
+    }
 
-        /* Stylish Question Style */
-        .question {
-            color: #fff;
-            font-size: 40px; /* Increased size for visibility */
-            text-align: center;
-            margin-bottom: 100px; /* Increased space between question and buttons */
-            background: linear-gradient(45deg, #ff0072, #00fff7); /* Gradient background */
-            padding: 30px 40px; /* Padding around the text */
-            border-radius: 15px; /* Rounded corners */
-            box-shadow: 0 10px 30px rgba(255, 0, 114, 0.7); /* Shadow effect */
-            animation: fadeIn 1s ease-in; /* Fade-in animation */
-            transition: transform 0.3s ease; /* Smooth transform on hover */
-        }
+    .container {
+      text-align: center;
+      position: relative;
+    }
 
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
+    h1 {
+      font-size: 2.5rem;
+      color: #fff;
+      margin-bottom: 40px;
+    }
 
-        .question:hover {
-            transform: scale(1.05); /* Slightly enlarge on hover */
-            background: linear-gradient(45deg, #00fff7, #ff0072); /* Reverse gradient on hover */
-        }
+    button {
+      padding: 15px 35px;
+      font-size: 18px;
+      border: none;
+      border-radius: 30px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      position: absolute;
+    }
 
-        /* Container for buttons side by side */
-        .button-container {
-            display: flex;
-            gap: 20px; /* Space between buttons */
-            flex-wrap: wrap; /* Wrap buttons on small screens */
-        }
+    #yesBtn {
+      background-color: #ff4d6d;
+      color: white;
+      left: -80px;
+    }
 
-        /* Consistent Button Styles */
-        button {
-            padding: 15px 25px;
-            color: #fff;
-            font-size: 18px;
-            font-weight: bold;
-            text-transform: uppercase;
-            border-radius: 8px;
-            cursor: pointer;
-            text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
-            transition: all 0.3s ease-in-out;
-            border: 2px solid transparent;
-            position: relative;
-            overflow: hidden; /* To contain the pseudo-element */
-            outline: none; /* Remove outline */
-            min-width: 120px; /* Ensure minimum width for buttons */
-        }
+    #noBtn {
+      background-color: #555;
+      color: white;
+      left: 100px;
+    }
 
-        /* Neon Moving Button Styles */
-        .moving-button {
-            background-color: #ff0072;
-            box-shadow: 0 0 15px #ff0072;
-        }
-
-        .moving-button:hover {
-            box-shadow: 0 0 25px #00ffcc;
-        }
-
-        /* Styled Simple Button */
-        .simple-button {
-            background-color: #00ffcc;
-        }
-
-        /* Simple Button Hover Effect */
-        .simple-button:hover {
-            background-color: #00bfa5;
-            box-shadow: 0 0 20px rgba(0, 255, 204, 0.3);
-        }
-
-        /* Message Styling */
-        .message {
-            color: #fff;
-            font-size: 32px; /* Bigger font size for "I knew it!" */
-            text-align: center;
-            margin-top: 40px;
-            opacity: 0; /* Hidden initially */
-            transition: opacity 0.5s ease-in-out;
-            text-shadow: 0 0 10px rgba(255, 255, 255, 0.4);
-            font-weight: bold; /* Make it stand out */
-        }
-
-        /* Added Stylish Pseudo Element for Button */
-        button::after {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            width: 300%;
-            height: 300%;
-            background: rgba(255, 255, 255, 0.2);
-            border-radius: 50%;
-            transform: translate(-50%, -50%) scale(0);
-            transition: transform 0.4s ease-in-out;
-            z-index: 0;
-        }
-
-        /* Button hover effect for pseudo-element */
-        button:hover::after {
-            transform: translate(-50%, -50%) scale(1);
-        }
-    </style>
+    .love-message {
+      font-size: 2.2rem;
+      color: white;
+      margin-top: 40px;
+      display: none;
+    }
+  </style>
 </head>
+
 <body>
 
-    <!-- Container for layout control -->
-    <div class="container">
-        <!-- Stylish Question -->
-        <div class="question">do you love me ❤️</div>
+  <div class="container">
+    <h1>Do you love me? 💖</h1>
 
-        <!-- Container for the buttons -->
-        <div class="button-container">
-            <button class="simple-button">yes</button>
-            <button class="moving-button">No</button> <!-- Changed text here -->
-            
-        </div>
-        
-        <div class="message"> i love you too 😍❤️ <div>
+    <button id="yesBtn">Yes ❤️</button>
+    <button id="noBtn">No 🙄</button>
+
+    <div class="love-message" id="loveMsg">
+      I love you too ❤️😍💖
     </div>
+  </div>
 
-    <script>
-        const button = document.querySelector('.moving-button');
-        const simpleButton = document.querySelector('.simple-button');
-        const message = document.querySelector('.message');
+  <script>
+    const noBtn = document.getElementById("noBtn");
+    const yesBtn = document.getElementById("yesBtn");
+    const loveMsg = document.getElementById("loveMsg");
 
-        function randomPosition() {
-            const buttonWidth = button.offsetWidth;
-            const buttonHeight = button.offsetHeight;
+    let yesSize = 18;
 
-            // Calculate new position, ensuring the button stays within the viewport
-            const maxX = window.innerWidth - buttonWidth - 20; // Added padding to prevent overflow
-            const maxY = window.innerHeight - buttonHeight - 20; // Added padding to prevent overflow
+    noBtn.addEventListener("mouseover", () => {
+      const x = Math.random() * 300 - 150;
+      const y = Math.random() * 200 - 100;
 
-            const x = Math.random() * maxX;
-            const y = Math.random() * maxY;
+      noBtn.style.transform = `translate(${x}px, ${y}px)`;
 
-            button.style.position = 'absolute'; // Make button movable
-            button.style.left = `${x}px`;
-            button.style.top = `${y}px`;
-        }
+      yesSize += 5;
+      yesBtn.style.fontSize = yesSize + "px";
+      yesBtn.style.padding = (yesSize) + "px";
+    });
 
-        // Move to a new position on hover
-        button.addEventListener('mouseover', randomPosition);
-
-        // Show the message when the simple button is clicked
-        simpleButton.addEventListener('click', function() {
-            message.style.opacity = 1; // Show the message
-        });
-    </script>
+    yesBtn.addEventListener("click", () => {
+      loveMsg.style.display = "block";
+      yesBtn.style.display = "none";
+      noBtn.style.display = "none";
+    });
+  </script>
 
 </body>
 </html>
